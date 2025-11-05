@@ -6,10 +6,19 @@ def get_char_count(text):
     for char in text:
         char = char.lower()
         if char.isalpha():
-            continue
-        if char in char_dict:
-            char_dict[char] += 1
-        else:
-            char_dict[char] = 1
+            if char in char_dict:
+                char_dict[char] += 1
+            else:
+                char_dict[char] = 1
     return char_dict
-def char_sort(char_count):
+
+def make_list_of_char_dicts(dicts):
+    list_of_dicts=[]
+    for key in dicts:
+        list_of_dicts.append({"char": key, "num": dicts[key]})
+    return list_of_dicts
+
+def sort_on(dict_list):
+    return dict_list["num"]
+
+    
